@@ -1,0 +1,35 @@
+<div class="mainContainer" [class.error]="false" [class.warning]="false" [style.width]="mainWidth + 15">
+  <input *ngIf="showLeft === 'true' " 
+      [disabled]  = "disabled" 
+      type        = "text" 
+      class       = "form-control inputIndex" 
+      [(ngModel)] = "inputValue"
+      (keydown)   = "selectByInput($event)"
+      (blur)      = "inputBlur()">
+  <div class="dropdown" dropdown [ngClass] = "{ dropdownNormal: !showLeft }" [style.width] = "width">
+    <button
+      [style.width] = "width"
+      [ngClass]="{btnDisabled: disabled}"
+      class         = "fs-sm-min btn-select btn-dropdown" 
+      [disabled]    = "disabled" 
+      type          = "button" 
+      id            = "dropdownMenu1" 
+      data-toggle   = "dropdown" 
+      aria-haspopup = "true" 
+      aria-expanded = "true"
+      dropdownToggle>
+        <span class="item-name">
+          {{ (itemSelected[modelText] === 0 ? 0 : ( itemSelected[modelText] ? itemSelected[modelText] : itemSelected )) }}
+        </span>
+        <span class = "caret"></span>
+    </button>
+    <ul class = "dropdown-menu" dropdownMenu aria-labelledby = "dropdownMenu1">
+      <li *ngFor = "let item of localData">
+        <a href (click) = "selectItem(item); false">
+          {{ item[modelText] ? item[modelText] : item }} 
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!--<span class="error-image"></span>-->
+</div>

@@ -1,3 +1,29 @@
 <h1>
-  {{title}}
+  Example 1
 </h1>
+<!--app-drop-down 
+  [data] = "[{id:0,text:'0'},{id:1,text:'1'},{id:2,text:'2'}]"
+  modelValue = "id"
+  modelText = "text"
+  initLabelSelection = "Select Region" 
+  width = "250px"
+  showLeft = "true"
+  [(ngModel)]="tmp"
+></app-drop-down>
+{{getJSONFormat(tmp)}}
+<app-drop-down 
+  [data] = "['1','2','3']"
+  initLabelSelection = "Select Region" 
+  width = "250px"
+  showLeft = "true"
+  [(ngModel)]="tmp2"
+></app-drop-down-->
+{{getJSONFormat(tmp)}}
+<app-drop-down 
+  [data] = "[1,2,3]"
+  initLabelSelection = "Select Region" 
+  width = "250px"
+  showLeft = "true"
+  [(ngModel)]="tmp3"
+></app-drop-down>
+{{getJSONFormat(tmp3)}}
